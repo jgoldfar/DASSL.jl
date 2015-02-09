@@ -123,7 +123,7 @@ function dasslStep{T<:Number}(F             :: Function,
                 shift!(dyout)
             end
 
-            produce(tout[end],yout[end],dyout[end],ord)
+            produce(tout[end],yout[end],dyout[end])
 
             # determine the new step size and order, including the current step
             (r,ord) = newStepOrder(tout,yout,normy,err,ord,num_fail,maxorder)
@@ -145,21 +145,18 @@ function dasslSolve(F, y0 :: Vector, tspan; dy0 = zero(y0), args...)
     tout  = Array(typeof(tspan[1]),1)
     yout  = Array(typeof(y0),1)
     dyout = Array(typeof(y0),1)
-    ordout = Array(Int,1)
     tout[1]  = tspan[1]
     yout[1]  = y0
     dyout[1] = dy0
-    ordout[1] = 1
     for (t, y, dy,ord) in dasslIterator(F, y0, tspan[1]; dy0=dy0, tstop=tspan[end], args...)
         push!( tout,  t)
         push!( yout,  y)
         push!(dyout, dy)
-        push!(ordout, ord)
         if t >= tspan[end]
             break
         end
     end
-    return (tout,yout,dyout,ordout)
+    return (tout,yout,dyout)
 end
 
 # A scalar version of dasslSolve, implemented as a wrapper around dasslSolve
