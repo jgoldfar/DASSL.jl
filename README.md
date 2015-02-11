@@ -3,7 +3,7 @@ DASSL.jl
 
 [![Build Status](https://travis-ci.org/pwl/DASSL.jl.png)](https://travis-ci.org/pwl/DASSL.jl)
 [![Coverage Status](https://img.shields.io/coveralls/pwl/DASSL.jl.svg)](https://coveralls.io/r/pwl/DASSL.jl)
-[![Package Evaluator](http://iainnz.github.io/packages.julialang.org/badges/DASSL_0.3.svg)](http://iainnz.github.io/packages.julialang.org/?pkg=DASSL)
+[![Package Evaluator](http://pkg.julialang.org/badges/DASSL_release.svg)](http://pkg.julialang.org/?pkg=DASSL&ver=release)
 
 This is an implementation of DASSL algorithm for solving algebraic
 differential equations.  To inastall a stable version run
